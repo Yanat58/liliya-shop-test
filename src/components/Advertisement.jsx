@@ -25,13 +25,10 @@ const Advertisement = () => {
         </div>
       </div>
 
-      <div className="xl:hidden bg-black flex-1 flex flex-row px-3.5 py-2  items-center justify-between">
+      <div className="xl:hidden bg-black flex-1 flex px-3.5 py-2  items-center justify-between">
         <p className={`${styles.title} text-xs text-primary`}>
           До кінця літа 50% на другу пару взуття!
         </p>
-        <button type="button">
-          <img src={close} alt="mevu" width={24} height={24} />
-        </button>
       </div>
 
       <div className="xl:hidden bg-secondary flex-1 flex flex-row px-3.5 py-2  items-center justify-between">

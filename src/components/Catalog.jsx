@@ -9,8 +9,8 @@ const Catalog = () => {
 
       <ul className={`grid  grid-cols-2 md:grid-cols-3 xl:grid-cols-4  xl:gap-5 gap-4  `}>
         {catalog.map((item, index) => (
-          <li key={index} className="max-w-[294px] relative">
-            <img src={`${item.image}`} alt={`${item.title}`} className="object-contain" />
+          <li key={index} className=" flex-1  relative">
+            <img src={`${item.image}`} alt={`${item.title}`} className="object-contain flex-1 w-[290px]" />
             <p className={` absolute xl:top-14  top-6 md:py-2  py-1  px-1 inset-x-2.5  ${styles.title} uppercase xl:text-xl md:text-xs text-xs ${styles.flexCenter} p-2 cursor-pointer hover:bg-secondary focus:bg-secondary bg-primary`}>{item.title}</p>
           </li>
         ))}

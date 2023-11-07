@@ -9,6 +9,7 @@ import Filter from "./Filter";
 import Sale from './Sale'
 import CareProducts from './CareProducts'
 import Slider from './Slider'
+import ScrollToTopButton  from "./ScrollToTopButton";
 
 export {
   Advertisement,
@@ -22,4 +23,5 @@ export {
   Sale,
   CareProducts,
   Slider,
+  ScrollToTopButton,
 };

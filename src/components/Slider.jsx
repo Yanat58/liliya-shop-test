@@ -5,10 +5,10 @@ import styles from '../style';
 import PropTypes from 'prop-types'
 
 const Slider = ({images}) => {
-  const [sliderId, setSliderId] = useState(0);
+  const [sliderId, setSliderId] = useState(1);
 
   const prevSlide = () => {
-    setSliderId(sliderId => (sliderId !== 0 ? sliderId - 1 : sliderId));
+    setSliderId(sliderId => (sliderId > 0 ? sliderId - 1 : sliderId));
   };
 
   const nextSlide = () => {
@@ -20,17 +20,18 @@ const Slider = ({images}) => {
   return (
     <div className=" mx-auto">
       <div
-        className={`${styles.flexCenter} relative w-full md:h-[710px] h-[130px] md:mb-24 mb-12`}
+        className={`${styles.flexCenter} relative w-full xl:h-[710px] md:h-[400px] h-[130px] xl:mb-24 mb-12`}
       >
         <ul className={`${styles.flexCenter} w-[85%] `}>
           {images.map((card, index) => (
             <li
               key={index}
-              className={`aspect-w-[293px] aspect-h-[520px] ${
-                index === sliderId ? 'md:scale-125' : ''
-              }   md:mr-7 mr-4 last:mr-0 `}
+              className='md:mr-7 mr-4 last:mr-0'
+              
             >
-              <img src={card} alt="" />
+              <img src={card} alt="" className={` ${
+                index === sliderId ? 'scale-125' : ''
+              } aspect-w-[293px] aspect-h-[520px] `} />
             </li>
           ))}
         </ul>

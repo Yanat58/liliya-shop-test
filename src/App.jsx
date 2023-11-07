@@ -9,12 +9,23 @@ import {
   Footer,
   CareProducts,
   Sale,
+  ScrollToTopButton,
 } from './components';
 import styles from './style';
 
 function App() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  scrollToTop();
+
+
   return (
-    <div className={`w-full overflow-hidden bg-primary relative `}>
+    <div className={`${styles.boxWidth} overflow-hidden bg-primary relative mx-auto `}>
       <Header>
         <div className={`${styles.boxWidth}`}>
           <Advertisement />
@@ -32,6 +43,7 @@ function App() {
         <FeedBacks />
       </div>
         <Footer />
+        <ScrollToTopButton />
     </div>
   );
 }
