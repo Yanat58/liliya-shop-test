@@ -53,7 +53,10 @@ export const categories = [
 export const imageCards = [
   img813,
   img813,
-  img817
+  img817,
+  img817,
+  img817,
+  
 ]
 
 export const navLinks = [

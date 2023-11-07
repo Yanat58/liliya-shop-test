@@ -9,27 +9,29 @@ import {
   Footer,
   CareProducts,
   Sale,
-} from "./components";
-import styles from "./style";
+} from './components';
+import styles from './style';
 
 function App() {
   return (
-    <div className={`${styles.boxWidth} mx-auto bg-primary `}>
+    <div className={`w-full overflow-hidden bg-primary relative `}>
       <Header>
-        <div
-          className={`bg-secondary mx-auto px-[100px] py-[8px] ${styles.flexCenter}`}
-        >
+        <div className={`${styles.boxWidth}`}>
           <Advertisement />
         </div>
         <NavBar />
         <Filter />
       </Header>
-      <Hero />
-      <Catalog />
-      <Sale />
-      <CareProducts />
-      <FeedBacks />
-      <Footer />
+      <div
+        className={`${styles.boxWidth}  ${styles.flexCenter} flex-col ${styles.paddingX}`}
+      >
+        <Hero />
+        <Catalog />
+        <Sale />
+        <CareProducts />
+        <FeedBacks />
+      </div>
+        <Footer />
     </div>
   );
 }

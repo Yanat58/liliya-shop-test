@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Header = ({children}) => {
   return (
-   <section className={`${styles.line}`}>
+   <section className={`${styles.line} ${styles.boxWidth} `}>
     {children}
    </section>
   );

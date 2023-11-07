@@ -24,10 +24,13 @@ import user from './user.svg'
 import shopping_cart from './shopping_cart.svg'
 import arrow_left from './arrow_left.svg'
 import arrow_right from './arrow_right.svg'
+import menu from './menu.svg'
+import close from './close.svg'
 
 
 
 export {
+    close,
     img813,
     img816,
     img817,
@@ -54,4 +57,5 @@ export {
     instagram,
     arrow_left,
     arrow_right,
+    menu,
 }

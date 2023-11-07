@@ -1,36 +1,82 @@
-import { navLinks,icons } from "../constants";
-import styles from "../style";
+import { navLinks, icons } from '../constants';
+import { menu, shopping_cart, close } from '../assets';
+import styles from '../style';
+import { useState } from 'react';
+import Sidebar from './Sidebar';
 
 const NavBar = () => {
+  const [toggle, setToggle] = useState(false)
+  const handleToggle =()=> {
+    setToggle(prev => !prev)
+  }
   return (
-    <nav className={`${styles.line} py-[10px] px-[100px]`}>
-      <div className="flex flex-row justify-between">
-        <div className={`${styles.flexCenter}`}>
-          <p className="font-montserrat font-black text-black text-5xl uppercase mr-12">Liliya</p>
-          <ul className={`${styles.flexCenter} `}>
-            {navLinks.map((navlink, index) => (
-              <li key={index} className={` text-[13px]  cursor-pointer ${styles.paragraph} ${index === navLinks.lenght - 1 ? 'mr-0' : 'mr-4'}`}>
-                <a href={`#${navlink.id}`}>{navlink.title}</a>
-                 </li>
+    <nav className={`${styles.line} ${styles.paddingX}  xl:py-[10px] py-2   `}>
+      <div className="flex flex-row justify-between ">
+        <div className={`${styles.flexCenter} `}>
+          <div className="xl:hidden flex flex-1 px-2 mr-12">
+            <img 
+            src={toggle ? close : menu} 
+            alt="menu"
+            onClick={handleToggle}
+             width={49} height={49} />
+          </div>
+          <p className="inline-blok font-montserrat font-black text-black text-5xl  uppercase mr-12 ">
+            Liliya
+          </p>
+          <div className="hidden xl:flex">
+            <ul className={`${styles.flexCenter}   `}>
+              {navLinks.map((navlink, index) => (
+                <li
+                  key={index}
+                  className={` text-[13px]  cursor-pointer ${
+                    styles.paragraph
+                  } ${index === navLinks.lenght - 1 ? 'mr-0' : 'mr-4'}`}
+                >
+                  <a href={`#${navlink.id}`}>{navlink.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className={`hidden xl:${styles.flexCenter}`}>
+          <ul className={`${styles.flexCenter}  gap-8 last:mr-4 `}>
+            {icons.map((icon, index) => (
+              <li key={index} className="group ">
+                <div  className=" relative ">
+                  <img src={`${icon.name}`} alt="" className="static" />
+                  <div
+                    className={` invisible group-last:visible ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}
+                  >
+                    2
+                  </div>
+                </div>
+              </li>
             ))}
           </ul>
         </div>
-        <div className={`${styles.flexCenter}`}>
-          <ul className={`${styles.flexCenter} gap-8  `}>
-          {icons.map((icon, index) => (
-              <li key={index} className="group">
-                <a href="" className=" relative">
-                  <img src={`${icon.name}`} alt="" className="static"/>                 
-                  <div  className={` invisible group-last:visible ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}>2</div>
-                            
-                </a>
-                 </li>
-          ))}
-          </ul>
+
+        <div className="xl:hidden flex items-center ">
+          <div  className=" relative mr-5">
+            <img src={shopping_cart} alt="" className="static" />
+            <div
+              className={` ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}
+            >
+              2
+            </div>
           </div>
+        </div>
+       
+      </div>
+
+      <div
+        className={`${
+          toggle ? 'flex' : 'hidden'
+        } `}
+      >
+        <Sidebar onClose={handleToggle}  />
       </div>
     </nav>
-      );
+  );
 };
 
 export default NavBar;

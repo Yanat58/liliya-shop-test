@@ -7,7 +7,10 @@ const styles = {
   title: "font-montserrat  font-bold leading-none",
   paragraph: "font-montserrat font-normal text-dimBlack leading-none",
 
-  line:"border-b border-borderColor border-solid",
+  line:"border-b border-dimBlack border-solid",
+
+  paddingX: "xl:px-24 md:px-12 px-4",
+  paddingY: "xl:py-14 md:py-10 py-6", 
 };
 
 export default styles;
