@@ -12,7 +12,6 @@ import Slider from './Slider'
 import ScrollToTopButton  from "./ScrollToTopButton";
 import Search from './Search'
 import Sidebar from "./Sidebar";
-import Modal from "./Modal";
 
 export {
   Advertisement,
@@ -23,7 +22,6 @@ export {
   Header,
   NavBar,
   Hero,
-  Modal,
   Sale,
   CareProducts,
   Slider,
