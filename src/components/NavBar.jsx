@@ -2,23 +2,31 @@ import { navLinks, icons } from '../constants';
 import { menu, shopping_cart, close } from '../assets';
 import styles from '../style';
 import { useState } from 'react';
-import Sidebar from './Sidebar';
+import { Sidebar, Search } from '../components';
 
 const NavBar = () => {
-  const [toggle, setToggle] = useState(false)
-  const handleToggle =()=> {
-    setToggle(prev => !prev)
-  }
+  const [toggle, setToggle] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleToggle = () => {
+    setToggle(prev => !prev);
+  };
+  const handleShowModal = () => {
+    setShowModal(prev => !prev);
+  };
+
   return (
     <nav className={`${styles.line} ${styles.paddingX}  xl:py-[10px] py-2   `}>
       <div className="flex flex-row justify-between ">
         <div className={`${styles.flexCenter} `}>
           <div className="xl:hidden flex flex-1 px-2 mr-12">
-            <img 
-            src={toggle ? close : menu} 
-            alt="menu"
-            onClick={handleToggle}
-             width={49} height={49} />
+            <img
+              src={toggle ? close : menu}
+              alt="menu"
+              onClick={handleToggle}
+              width={49}
+              height={49}
+            />
           </div>
           <p className="inline-blok font-montserrat font-black text-black text-5xl  uppercase mr-12 ">
             Liliya
@@ -42,7 +50,7 @@ const NavBar = () => {
           <ul className={`${styles.flexCenter}  gap-8 last:mr-4 `}>
             {icons.map((icon, index) => (
               <li key={index} className="group ">
-                <div  className=" relative ">
+                <div className=" relative ">
                   <img src={`${icon.name}`} alt="" className="static" />
                   <div
                     className={` invisible group-last:visible ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}
@@ -56,7 +64,7 @@ const NavBar = () => {
         </div>
 
         <div className="xl:hidden flex items-center ">
-          <div  className=" relative mr-5">
+          <div className=" relative mr-5">
             <img src={shopping_cart} alt="" className="static" />
             <div
               className={` ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}
@@ -65,15 +73,14 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-       
       </div>
 
-      <div
-        className={`${
-          toggle ? 'flex' : 'hidden'
-        } `}
-      >
-        <Sidebar onClose={handleToggle}  />
+      <div className={`${toggle ? 'flex' : 'hidden'} `}>
+        <Sidebar onClose={handleToggle} />
+      </div>
+
+      <div className={`${showModal ? 'flex' : 'hidden'}`}>
+        <Search onClose={handleShowModal}/>
       </div>
     </nav>
   );

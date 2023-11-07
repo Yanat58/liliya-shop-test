@@ -6,7 +6,7 @@ import { rec1152,
   rec1152_5,
   rec1152_6,
   rec1152_7, 
-  loupa,
+  // loupa,
   user,
   favourite,
   shopping_cart,
@@ -15,9 +15,9 @@ import { rec1152,
 } from '../assets'
 
 export const icons = [
-  {
-    name: loupa
-  },
+  // {
+  //   name: loupa
+  // },
   {
     name: user
   },

@@ -34,9 +34,11 @@ const Hero = () => {
       <div
         className={`flex-1 flex items-center justify-end flex-row gap-2 mt-[7px]`}
       >
-        <img src={arrow_left} alt="" className='xl:w-10 xl:h-10 w-8 h-8' />
-        <img src={arrow_right} alt="" className='xl:w-10 xl:h-10 w-8 h-8' />
+        <img src={arrow_left} alt="" className="xl:w-10 xl:h-10 w-8 h-8" />
+        <img src={arrow_right} alt="" className="xl:w-10 xl:h-10 w-8 h-8" />
       </div>
+
+     
     </section>
   );
 };

@@ -1,7 +1,15 @@
-import { instagram, call,  close, loupa } from '../assets';
+import { useState } from 'react';
+import { instagram, call,  loupa } from '../assets';
 import styles from '../style';
+import {Search} from '../components'
 
 const Advertisement = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(prev => !prev);
+  };
+
   return (
     <>
       <div className="hidden xl:flex">
@@ -40,7 +48,9 @@ const Advertisement = () => {
           &#64;liliya.drohobych
         </a>
         <div className=" flex flex-row gap-5 ">
-          <button type="button">
+          <button
+          onClick={handleShowModal}
+           type="button">
             <img src={loupa} alt="loupa" width={18} height={18} />
           </button>
           <a href="tel: +380980000000">
@@ -49,6 +59,9 @@ const Advertisement = () => {
         </div>
       </div>
 
+      <div className={`${showModal ? 'flex' : 'hidden'}`}>
+        <Search onClose={handleShowModal}/>
+      </div>
      
     </>
   );
