@@ -1,6 +1,7 @@
 import styles from '../style';
 import { loupa, close } from '../assets';
 import { useEffect, useState} from 'react';
+import PropTypes from 'prop-types'
 
 const Search = ({  onClose }) => {
     const [search, setSearch] = useState('')
@@ -79,5 +80,11 @@ const Search = ({  onClose }) => {
     </div>
   );
 };
+
+
+
+Search.propTypes = {
+    onClose: PropTypes.func
+  }
 
 export default Search;
