@@ -1,19 +1,31 @@
 import styles from '../style';
 import { loupa, close } from '../assets';
-import { useEffect, useState} from 'react';
+import { useEffect} from 'react';
 import PropTypes from 'prop-types'
 
-const Search = ({  onClose }) => {
-    const [search, setSearch] = useState('')
+const Search = ({search, setSearch, onClose }) => {
+  
     
     const handleSubmit = e => {
         e.preventDefault();
-      };
+        const query = search.toLowerCase().trim();
+
+        setSearch(query)
+
+        if (query === '') {
+        return  alert('Please enter something');
+        
+      }
+    }
     
       const handleChange = e => {
-        const searchQuery = e.target.value;
+        const query = e.currentTarget.value;
+
+        if(!query) {
+          setSearch(query)
+        } 
        
-        setSearch(searchQuery);
+        setSearch(query);
         onClickClear()
       };
     
@@ -55,13 +67,12 @@ const Search = ({  onClose }) => {
         </label>
         <div className="relative  mt-2">
           <input
-            id="email"
             name="search"
             value={search}
             type="text"
             placeholder="Пошук"
             onChange={handleChange}
-            className="block md:w-96 w-72 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  pl-9 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6"
+            className="block md:w-96 w-72 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  pl-9 focus:outline-none focus:ring-2 focus:ring-inset caret-secondary focus:ring-secondary sm:text-sm sm:leading-6"
           />
             <img src={loupa} alt="loupa" className="absolute top-2.5 left-2  w-4 h-4 fill-black/60" />       
         </div>
@@ -84,7 +95,9 @@ const Search = ({  onClose }) => {
 
 
 Search.propTypes = {
-    onClose: PropTypes.func
+    onClose: PropTypes.func,
+    setSearch: PropTypes.func,
+    search: PropTypes.node
   }
 
 export default Search;

@@ -1,12 +1,13 @@
-import { navLinks, icons } from '../constants';
-import { menu, shopping_cart, close } from '../assets';
+import { navLinks } from '../constants';
+import { menu, shopping_cart, close, loupa, user, favourite } from '../assets';
 import styles from '../style';
 import { useState } from 'react';
 import { Sidebar, Search } from '../components';
 
 const NavBar = () => {
   const [toggle, setToggle] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false)
+  const [search, setSearch] = useState('')
 
   const handleToggle = () => {
     setToggle(prev => !prev);
@@ -47,19 +48,26 @@ const NavBar = () => {
           </div>
         </div>
         <div className={`hidden xl:${styles.flexCenter}`}>
-          <ul className={`${styles.flexCenter}  gap-8 last:mr-4 `}>
-            {icons.map((icon, index) => (
-              <li key={index} className="group ">
-                <div className=" relative ">
-                  <img src={`${icon.name}`} alt="" className="static" />
-                  <div
-                    className={` invisible group-last:visible ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}
-                  >
-                    2
-                  </div>
+        <ul className={`${styles.flexCenter}  gap-8 last:mr-4 `}>
+            <li className="group ">
+              <img src={loupa} alt="" className="w-[28px] h-[28px]"  />
+            </li>
+            <li className="group ">
+              <img src={user} alt="" className="w-[28px] h-[28px]"  />
+            </li>
+            <li className="group ">
+              <img src={favourite} alt="" className="w-[28px] h-[28px]"  />
+            </li>
+            <li className=" flex items-center ">
+              <div className=" relative ">
+                <img src={shopping_cart} alt="" className="w-[28px] h-[28px]"  />
+                <div
+                  className={` ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}
+                >
+                  2
                 </div>
-              </li>
-            ))}
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -80,7 +88,9 @@ const NavBar = () => {
       </div>
 
       <div className={`${showModal ? 'flex' : 'hidden'}`}>
-        <Search onClose={handleShowModal}/>
+        <Search onClose={handleShowModal} 
+        search={search}
+        setSearch={setSearch}/>
       </div>
     </nav>
   );

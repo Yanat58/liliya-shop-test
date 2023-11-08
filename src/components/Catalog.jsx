@@ -4,7 +4,7 @@ import styles from '../style'
 
 const Catalog = () => {
   return (
-    <section id="catalog" className={` ${styles.paddingY}`}>
+    <section id="catalog" className={`flex-1 ${styles.paddingY} `}>
       <h2 className={`${styles.title} uppercase xl:text-3xl text-2xl xl:mb-9 mb-6`}>Каталог взуття</h2>
 
       <ul className={`grid  grid-cols-2 md:grid-cols-3 xl:grid-cols-4  xl:gap-5 gap-4  `}>
