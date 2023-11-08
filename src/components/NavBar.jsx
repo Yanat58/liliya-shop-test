@@ -6,8 +6,7 @@ import { Sidebar, Search } from '../components';
 
 const NavBar = () => {
   const [toggle, setToggle] = useState(false);
-  const [showModal, setShowModal] = useState(false)
-  const [search, setSearch] = useState('')
+  const [showModal, setShowModal] = useState(false);
 
   const handleToggle = () => {
     setToggle(prev => !prev);
@@ -48,19 +47,21 @@ const NavBar = () => {
           </div>
         </div>
         <div className={`hidden xl:${styles.flexCenter}`}>
-        <ul className={`${styles.flexCenter}  gap-8 last:mr-4 `}>
-            <li className="group ">
-              <img src={loupa} alt="" className="w-[28px] h-[28px]"  />
+          <ul className={`${styles.flexCenter}  gap-8 last:mr-4 `}>
+            <li>
+              <button onClick={handleShowModal} type="button">
+                <img src={loupa} alt="loupa" width={28} height={28} />
+              </button>
             </li>
-            <li className="group ">
-              <img src={user} alt="" className="w-[28px] h-[28px]"  />
+            <li>
+              <img src={user} alt="" className="w-[28px] h-[28px]" />
             </li>
-            <li className="group ">
-              <img src={favourite} alt="" className="w-[28px] h-[28px]"  />
+            <li>
+              <img src={favourite} alt="" className="w-[28px] h-[28px]" />
             </li>
             <li className=" flex items-center ">
               <div className=" relative ">
-                <img src={shopping_cart} alt="" className="w-[28px] h-[28px]"  />
+                <img src={shopping_cart} alt="" className="w-[28px] h-[28px]" />
                 <div
                   className={` ${styles.flexCenter} absolute  w-[20px] h-[20px] rounded-full bg-black text-primary -top-1 -right-3 `}
                 >
@@ -88,9 +89,7 @@ const NavBar = () => {
       </div>
 
       <div className={`${showModal ? 'flex' : 'hidden'}`}>
-        <Search onClose={handleShowModal} 
-        search={search}
-        setSearch={setSearch}/>
+        <Search onClose={handleShowModal} />
       </div>
     </nav>
   );

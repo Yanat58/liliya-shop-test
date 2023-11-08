@@ -4,8 +4,6 @@ import { useEffect} from 'react';
 import PropTypes from 'prop-types'
 
 const Search = ({search, setSearch, onClose }) => {
-  
-    
     const handleSubmit = e => {
         e.preventDefault();
         const query = search.toLowerCase().trim();
@@ -54,13 +52,12 @@ const Search = ({search, setSearch, onClose }) => {
   return (
     <div
     onClick={handleClickBackdrop} 
-     className="fixed top-0 left-0 w-screen h-screen z-10 bg-black/60">
+     className={` mx-auto fixed top-0 left-0 w-screen  h-screen z-10 bg-black/60`}>
       <form
       onSubmit={handleSubmit}
-        className={`${styles.flexCenter} absolute top-8 md:left-16 left-10 flex-col gap-1 w-10/12 xl:h-32 h-24 py-2  z-10 rounded-md bg-primary `}
+        className={`${styles.flexCenter} absolute  inset-x-2/4 -translate-x-2/4 top-8 flex-col gap-1 w-10/12 xl:w-7/12 xl:h-32 h-24 py-2  z-10 rounded-md bg-primary `}
       >
         <label
-          htmlFor=""
           className="block xl:text-lg text-sm font-medium leading-6 text-gray-900"
         >
           Знайдіть товар за назвою
@@ -72,7 +69,7 @@ const Search = ({search, setSearch, onClose }) => {
             type="text"
             placeholder="Пошук"
             onChange={handleChange}
-            className="block md:w-96 w-72 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  pl-9 focus:outline-none focus:ring-2 focus:ring-inset caret-secondary focus:ring-secondary sm:text-sm sm:leading-6"
+            className="block xl:w-96 md:w-96 w-72 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  pl-9 focus:outline-none focus:ring-2 focus:ring-inset caret-secondary focus:ring-secondary sm:text-sm sm:leading-6"
           />
             <img src={loupa} alt="loupa" className="absolute top-2.5 left-2  w-4 h-4 fill-black/60" />       
         </div>
